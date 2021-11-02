@@ -1,0 +1,1 @@
+{"version":3,"file":"ImessageReceiver.d.ts","sourceRoot":"","sources":["../../../src/listener/ImessageReceiver.ts"],"names":[],"mappings":"AAAA,OAAO,gBAAgB,MAAM,+BAA+B,CAAC;AAE7D,MAAM,CAAC,OAAO,WAAW,gBAAgB;IACrC,WAAW,CAAC,KAAK,EAAC,MAAM,EAAE,QAAQ,EAAE,gBAAgB,GAAE,IAAI,CAAA;CAC7D"}

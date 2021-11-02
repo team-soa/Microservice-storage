@@ -1,0 +1,1 @@
+{"version":3,"file":"MessageReceiver.d.ts","sourceRoot":"","sources":["../../../src/listener/MessageReceiver.ts"],"names":[],"mappings":"AAAA,OAAO,gBAAgB,MAAM,+BAA+B,CAAC;AAC7D,OAAO,gBAAgB,MAAM,oBAAoB,CAAC;AAIlD,MAAM,CAAC,OAAO,OAAO,eAAgB,YAAW,gBAAgB;IAC5D,WAAW,CAAC,KAAK,EAAE,MAAM,EAAE,QAAQ,EAAE,gBAAgB,GAAG,IAAI;CAsB/D"}

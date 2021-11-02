@@ -15,24 +15,20 @@ export default class ContainerController implements IFolderController{
         this.credential = new StorageSharedKeyCredential(accountName, accountKey)
     }
 
-    async create(containerName: string){
-        try{
-            const blobServiceClient = BlobServiceClient.fromConnectionString(this.AZURE_STORAGE_CONNECTION_STRING);
-            let containerClient = blobServiceClient.getContainerClient(containerName);
-            // Se crea el container 
-            const createContainerResponse = await containerClient.create();
-            console.log(createContainerResponse)
-            // Se establecen las opciones para la key del container
-            const options = {containerName: containerClient.containerName,
-                expiresOn: new Date(2022, 1, 1), 
-                startsOn: new Date(2020, 1, 1), 
-                permissions: ContainerSASPermissions.from({create: true, delete: true, read: true, write: true})
-            }
-            // Se genera la llave
-            let key = generateBlobSASQueryParameters(options, this.credential).toString()
-            console.log(key)
-        }catch(error){
+    async create(containerName: string): Promise<string>{
+        const blobServiceClient = BlobServiceClient.fromConnectionString(this.AZURE_STORAGE_CONNECTION_STRING);
+        let containerClient = blobServiceClient.getContainerClient(containerName);
+        // Se crea el container 
+        const createContainerResponse = await containerClient.create();
+        console.log(createContainerResponse)
+        // Se establecen las opciones para la key del container
+        const options = {containerName: containerClient.containerName,
+            expiresOn: new Date(2022, 1, 1), 
+            startsOn: new Date(2020, 1, 1), 
+            permissions: ContainerSASPermissions.from({create: true, delete: true, read: true, write: true})
         }
-    
+        // Se genera la llave
+        let key = generateBlobSASQueryParameters(options, this.credential).toString()
+        return key
     }
 }

@@ -4,8 +4,12 @@ import IMessageReceiver from "./ImessageReceiver";
 var amqp = require('amqplib/callback_api');
 
 export default class MessageReceiver implements IMessageReceiver{
+    host: string
+    constructor(host: string){
+        this.host = host
+    }
     setListener(queue: string, executer: IMessageExecuter): void {
-        amqp.connect('amqp://localhost', function(error0:any, connection:any) {
+        amqp.connect(this.host, function(error0:any, connection:any) {
             if (error0) {
                 throw error0;
             }

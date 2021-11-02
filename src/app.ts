@@ -12,12 +12,13 @@ const accountKey = "DRhzPgINTEWI8IeQ9MjMBQol/vEnLbECZDYI53+2yCkQAT8qva6BbbUnFWha
 const deleteBlobQueue = "deleteFile"
 const createContainerQueue = "createFolder"
 const createContainerQueueResponse = "updateUserKey"
+const rabbitHost = "amqp://localhost"
 
-let messageReceiver = new MessageReceiver()
+let messageReceiver = new MessageReceiver(rabbitHost)
 let blobController = new BlobController(AZURE_STORAGE_CONNECTION_STRING)
 let containerController = new ContainerController(AZURE_STORAGE_CONNECTION_STRING, accountName, accountKey)
 let deleteFileMessageExecuter = new DeleteFileMessageExecuter(blobController)
-let messageSender = new RabbitSender()
+let messageSender = new RabbitSender(rabbitHost)
 let queuePreSender = new QueuePreSender(messageSender, createContainerQueueResponse)
 let createContainerMessageExecuter = new CreateContainerMessageExecuter(containerController, queuePreSender)
 

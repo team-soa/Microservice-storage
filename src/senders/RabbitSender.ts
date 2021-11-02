@@ -2,8 +2,12 @@ import IQueueSender from "./IQueueSender";
 var amqp = require('amqplib/callback_api');
 
 export default class RabbitSender implements IQueueSender{
+    host: string
+    constructor(host: string){
+        this.host = host
+    }
     sendDataToQueue(queue:string, msg:string){
-        amqp.connect('amqp://localhost', function(error0:any, connection:any) {
+        amqp.connect(this.host, function(error0:any, connection:any) {
             if (error0) {
                 throw error0;
             }

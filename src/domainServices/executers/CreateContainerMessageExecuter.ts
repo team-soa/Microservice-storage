@@ -1,7 +1,7 @@
 import ContainerCreationResponse from "../models/ContainerCreationResponse";
-import StorageOptions from "../models/StorageOptions";
-import IPreSender from "../presender/IPreSender";
-import IFolderController from "../storageControllers/folderControllers/IFolderController";
+import StorageOptions from "../../domainModels/StorageOptions";
+import IPreSender from "../../applicationServices/messaging/PreSender/IPreSender";
+import IFolderController from "../../applicationServices/storageControllers/folderControllers/IFolderController";
 import IMessageExecuter from "./IMessageExecuter";
 
 export default class CreateContainerMessageExecuter implements IMessageExecuter{

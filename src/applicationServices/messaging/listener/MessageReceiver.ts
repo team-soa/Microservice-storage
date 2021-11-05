@@ -1,5 +1,5 @@
-import IMessageExecuter from "../executers/IMessageExecuter";
-import IMessageReceiver from "./ImessageReceiver";
+import IMessageExecuter from "../../../domainServices/executers/IMessageExecuter";
+import IMessageReceiver from "./IMessageReceiver";
 
 var amqp = require('amqplib/callback_api');
 

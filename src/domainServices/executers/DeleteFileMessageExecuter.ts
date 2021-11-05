@@ -1,5 +1,5 @@
-import StorageOptions from "../models/StorageOptions";
-import IFileController from "../storageControllers/fileControllers/IFileController";
+import StorageOptions from "../../domainModels/StorageOptions";
+import IFileController from "../../applicationServices/storageControllers/fileControllers/IFileController";
 import IMessageExecuter from "./IMessageExecuter";
 
 export default class DeleteFileMessageExecuter implements IMessageExecuter{

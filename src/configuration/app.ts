@@ -1,10 +1,10 @@
-import CreateContainerMessageExecuter from "./executers/CreateContainerMessageExecuter";
-import DeleteFileMessageExecuter from "./executers/DeleteFileMessageExecuter";
-import MessageReceiver from "./listener/MessageReceiver";
-import QueuePreSender from "./PreSender/QueuePresender";
-import RabbitSender from "./senders/RabbitSender";
-import BlobController from "./storageControllers/fileControllers/BlobController";
-import ContainerController from "./storageControllers/folderControllers/ContainerController";
+import CreateContainerMessageExecuter from "../domainServices/executers/CreateContainerMessageExecuter";
+import DeleteFileMessageExecuter from "../domainServices/executers/DeleteFileMessageExecuter";
+import MessageReceiver from "../applicationServices/messaging/listener/MessageReceiver";
+import QueuePreSender from "../applicationServices/messaging/PreSender/QueuePresender";
+import RabbitSender from "../applicationServices/messaging/senders/RabbitSender";
+import BlobController from "../applicationServices/storageControllers/fileControllers/BlobController";
+import ContainerController from "../applicationServices/storageControllers/folderControllers/ContainerController";
 
 const AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=soakaraokestorage;AccountKey=DRhzPgINTEWI8IeQ9MjMBQol/vEnLbECZDYI53+2yCkQAT8qva6BbbUnFWhaqkA/t4H6omWvlJ1bobcR7O8ETg==;EndpointSuffix=core.windows.net";
 const accountName = "soakaraokestorage";

@@ -8,7 +8,7 @@ export default class BlobController implements IFileController{
   constructor(AZURE_STORAGE_CONNECTION_STRING: string){
       this.AZURE_STORAGE_CONNECTION_STRING = AZURE_STORAGE_CONNECTION_STRING
   }
-  async delete(container:string , blob: string){
+  async delete(container:string , blob: string):Promise<void>{
     try{
         const blobServiceClient = BlobServiceClient.fromConnectionString(this.AZURE_STORAGE_CONNECTION_STRING);
         const containerClient =  blobServiceClient.getContainerClient(container)  

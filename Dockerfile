@@ -1,8 +1,8 @@
 FROM node:14-alpine
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 WORKDIR /usr/src/app
-COPY ["package.json", "tsconfig.json","package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm ci
+COPY ["package.json", "tsconfig.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install
 COPY . .
 RUN chown -R node /usr/src/app
 USER node

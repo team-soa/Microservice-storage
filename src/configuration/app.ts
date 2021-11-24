@@ -6,13 +6,13 @@ import BlobController from "../applicationServices/storageControllers/fileContro
 import ContainerController from "../applicationServices/storageControllers/folderControllers/ContainerController";
 import QueuePreSender from "../applicationServices/messaging/PreSender/QueuePreSender";
 
-const AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=soakaraokestorage;AccountKey=DRhzPgINTEWI8IeQ9MjMBQol/vEnLbECZDYI53+2yCkQAT8qva6BbbUnFWhaqkA/t4H6omWvlJ1bobcR7O8ETg==;EndpointSuffix=core.windows.net";
-const accountName = "soakaraokestorage";
-const accountKey = "DRhzPgINTEWI8IeQ9MjMBQol/vEnLbECZDYI53+2yCkQAT8qva6BbbUnFWhaqkA/t4H6omWvlJ1bobcR7O8ETg==";
+const AZURE_STORAGE_CONNECTION_STRING = <string>process.env.storage_connection_string;
+const accountName = <string>process.env.account_name;
+const accountKey = <string>process.env.storage_account_key;
 const deleteBlobQueue = "deleteFile"
 const createContainerQueue = "createFolder"
 const createContainerQueueResponse = "updateUserKey"
-const rabbitHost = "amqp://"+process.env.rabbit_url
+const rabbitHost = "amqp://"+<string>process.env.rabbit_url
 
 let messageReceiver = new MessageReceiver(rabbitHost)
 let blobController = new BlobController(AZURE_STORAGE_CONNECTION_STRING)
